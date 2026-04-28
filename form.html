@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/image-removebg-preview (12).png" type="image/x-icon">
+    <style>
+      /* RESET */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+          Arial, sans-serif;
+      }
+
+      /* BODY */
+      body {
+        background: #f5f5f5;
+      }
+
+      /* HEADER */
+      header {
+        width: 100%;
+        height: 90px;
+        background: #e50914;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-image: url("img/image-removebg-preview (13).png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 150px;
+      }
+
+      /* CONTAINER PRINCIPAL */
+      .form {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+
+      /* TÍTULO */
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #222;
+        margin: 20px;
+      }
+      h1:hover {
+        color: red;
+      }
+
+      /* CARDS */
+      .card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 25px;
+        margin-bottom: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      /* TITULO DO CARD */
+      .card h2 {
+        margin-bottom: 15px;
+        color: #e50914;
+      }
+
+      /* GRID */
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+
+      /* INPUTS */
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 14px;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+        font-size: 14px;
+        outline: none;
+        transition: 0.2s;
+      }
+
+      /* FOCO */
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: #e50914;
+        box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.1);
+      }
+
+      /* BOTÕES SIM/NÃO */
+      .options {
+        display: flex;
+        gap: 10px;
+        margin: 10px 0 20px;
+      }
+
+      .options button {
+        flex: 1;
+        padding: 12px;
+        border-radius: 12px;
+        border: 2px solid #e50914;
+        background: transparent;
+        color: #e50914;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      /* ATIVO */
+      .options button.active,
+      .options button:hover {
+        background: #e50914;
+        color: white;
+      }
+
+      /* UPLOAD */
+      .upload {
+        display: flex;
+        gap: 15px;
+      }
+
+      .box {
+        flex: 1;
+        border: 2px dashed #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        color: #888;
+        cursor: pointer;
+      }
+
+      .box:hover {
+        border-color: #e50914;
+        color: #e50914;
+      }
+
+      /* TEXTAREA */
+      textarea {
+        resize: none;
+        height: 100px;
+      }
+
+      /* BOTÃO FINAL */
+      .submit {
+        width: 100%;
+        padding: 18px;
+        border-radius: 20px;
+        background: #ffd600;
+        border: none;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      /* HOVER */
+      .submit:hover {
+        background: red;
+        color: white;
+      }
+
+      /* RESPONSIVO */
+      @media (max-width: 768px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .upload {
+          flex-direction: column;
+        }
+      }
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+
+        width: 100%;
+        height: 70px;
+        background-color: red;
+
+        background-image: url("img/image-removebg-preview (13).png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 120px;
+      }
+      .aviso{
+        color: red;
+        font-size: 18px;
+        text-align: center;
+
+      }
+      .btn-voltar {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: red;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+  transition: all 0.2s ease;
+}
+.btn-voltar:hover {
+  transform: scale(1.1);
+  background: red;
+}
+.btn-ajuda {
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+
+  background: #e50914;
+  color: white;
+
+  padding: 12px 18px;
+  border-radius: 30px;
+
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+  z-index: 999;
+  transition: 0.3s;
+}
+
+.btn-ajuda:hover {
+  transform: scale(1.05);
+  background: #c40812;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 15px rgba(229, 9, 20, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(229, 9, 20, 0);
+  }
+}
+
+.btn-ajuda {
+  animation: pulse 2s infinite;
+}
+    </style>
+    <title>Cadastro loja comum - Compre Sem Fila</title>
+  </head>
+  <body>
+    <header>
+          <button class="btn-voltar">
+    <a href="cadastro.csf.html">
+         <img class="seta" src="img/seta-para-a-esquerda.png" alt="">
+    </a>
+ 
+</button>
+    </header>
+
+    <div class="form">
+      <h1>Cadastrar Loja</h1>
+
+      
+      <div class="card">
+        <h2>Dados da Loja</h2>
+
+        <div class="grid">
+          <input placeholder="Nome da Loja" />
+          <input placeholder="Razão Social" />
+          <input placeholder="CNPJ ou CPF" />
+          <input placeholder="Telefone da Loja" />
+          <input placeholder="E-mail" />
+          <input placeholder="Cidade" />
+          <input placeholder="Bairro" />
+          <input placeholder="Rua" />
+        </div>
+      </div>
+
+      <!-- DADOS BANCÁRIOS -->
+      <div class="card">
+        <h2>Dados Bancários</h2>
+
+        <div class="grid">
+          <input placeholder="Banco" />
+          <input placeholder="Tipo de Conta" />
+          <input placeholder="Agência" />
+          <input placeholder="Conta" />
+        </div>
+      </div>
+
+      <!-- CONFIGURAÇÕES -->
+      <div class="card">
+        <h2>Configurações</h2>
+
+        <p>Loja fecha para almoço?</p>
+        <div class="options">
+          <button>Sim</button>
+          <button>Não</button>
+        </div>
+
+        <p>Aceita retirada no local?</p>
+        <div class="options">
+          <button>Sim</button>
+          <button>Não</button>
+        </div>
+      </div>
+
+      <!-- HORÁRIOS -->
+      <div class="card">
+        <h2>Horários</h2>
+
+        <div class="grid">
+          <input type="time" />
+          <input type="time" />
+          <input type="time" />
+          <input type="time" />
+        </div>
+      </div>
+
+      <!-- ANEXOS -->
+      <div class="card">
+        <h2>Anexos</h2>
+        <p class="aviso"> <strong>
+Envie o logo e o cardápio.
+Isso é essencial para ativar sua loja mais rápido.
+        </strong></p><br>
+
+        <div class="upload">
+          <div class="box">
+            <p>Cardápio</p>
+            <br />
+            <input type="file" name="Logo" id="" placeholder="Logo" />
+          </div>
+          <div class="box">
+            <p>Logo</p>
+            <br />
+            <input type="file" name="Cardápio" id="" placeholder="Cardápio" />
+          </div>
+        </div>
+      </div>
+<!-- OBS -->
+<div class="card">
+<h2>Observações</h2>
+<textarea placeholder="Se você tiver o link do cardápio online em vez de imagens, por favor, cole-o aqui.""></textarea>
+      <!-- FINAL -->
+       <a href="sucess.html">
+         <button class="submit">Enviar Cadastro</button>
+       </a>
+     
+    </div>
+    <a href="https://seu-video-aqui.com" target="_blank" class="btn-ajuda">
+  Em caso de dúvidas<br>
+   clique aqui 🎥 <br>
+</a>
+  </body>
+</html>
