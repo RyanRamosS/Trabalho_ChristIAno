@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/image-removebg-preview (12).png" type="image/x-icon">
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: white;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+
+        width: 100%;
+        height: 70px;
+        background-color: red;
+
+        background-image: url("img/image-removebg-preview (13).png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 120px;
+      }
+
+      /* 🔥 BLOCO PRINCIPAL (UNIFICADO) */
+      .main {
+        display: flex;
+        align-items: center;
+        gap: 0;
+
+        border-radius: 40px;
+        overflow: hidden; /* 🔥 une visualmente */
+        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+      }
+
+      /* 🔴 LADO ESQUERDO */
+      .left-box {
+        background-color: red;
+        padding: 80px 50px;
+        text-align: center;
+        width: 350px;
+
+        border-radius: 40px 0 0 40px;
+      }
+
+      .left-box img {
+        width: 200px;
+        margin-bottom: 15px;
+      }
+
+      .left-box p {
+        color: yellow;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      .left-box p:hover{
+        color: white;
+      }
+
+      /* ⚪ LADO DIREITO */
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 450px;
+        background-color: white;
+        padding: 40px;
+
+        border-radius: 0 40px 40px 0;
+      }
+
+      h1 {
+        color: red;
+        margin-bottom: 15px;
+      }
+       h1:hover{
+        color: gold;
+       }
+
+      input {
+        border: solid red;
+        margin: 6px 0;
+        border-radius: 40px;
+        width: 100%;
+        padding: 10px;
+        outline: none;
+      }
+
+      input:focus {
+        border-color: darkred;
+      }
+
+      .button-24 {
+        background: #ff4742;
+        border: none;
+        width: 100%;
+        border-radius: 40px;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 12px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+
+      .button-24:hover {
+        background-color: white;
+        color: #ff4742;
+        border: 1px solid #ff4742;
+      }
+    </style>
+
+    <title>Login Cadastro</title>
+  </head>
+
+  <body>
+    <header></header>
+
+    <div class="main">
+      
+      <!-- 🔴 ESQUERDA -->
+      <div class="left-box">
+        <img src="img/image-removebg-preview (12).png" alt="Logo" />
+        <p>Entregando Felicidade</p>
+      </div>
+
+      <!-- ⚪ DIREITA -->
+      <div class="container">
+        <h1>Login Cadastro</h1>
+
+        <input type="email" placeholder="Usuário" />
+        <input type="password" placeholder="Senha" />
+<a href="cadastro.csf.html">
+  <button class="button-24">Acessar</button>
+</a>
+        
+      </div>
+
+    </div>
+  </body>
+</html>
