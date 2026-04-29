@@ -115,7 +115,7 @@ box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;}
 .logo {
   width: 250px;
   margin: 0 auto 10px auto;
-  /* display: block; */
+  display: block;
 }
 header{
   background-color: white;
