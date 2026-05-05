@@ -174,6 +174,41 @@ h2 {
   color: #444;
 }
 
+/* TABELA */
+.table-box {
+  margin: 20px 0 30px;
+  overflow-x: auto;
+  position: relative;
+  z-index: 2;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #fff;
+}
+
+thead {
+  background: #4caf50;
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+  background: #f9f9f9;
+}
+
 /* BOTÃO */
 .btn {
   width: 100%;
@@ -255,6 +290,41 @@ h2 {
       </div>
     </div>
 
+    <!-- TABELA -->
+    <div class="table-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Etapa</th>
+            <th>Responsável</th>
+            <th>Prazo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🔍 Análise</td>
+            <td>Equipe Compre Sem Fila</td>
+            <td>1 a 3 dias</td>
+          </tr>
+          <tr>
+            <td>📝 Cadastramento</td>
+            <td>Equipe Compre Sem Fila</td>
+            <td>2 a 5 dias</td>
+          </tr>
+          <tr>
+            <td>🎓 Treinamento</td>
+            <td>Licenciada da cidade</td>
+            <td>Agendado</td>
+          </tr>
+          <tr>
+            <td>🚀 Ativação</td>
+            <td>Plataforma</td>
+            <td>Até 15 dias</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     <a href="cadastro.csf.html">
       <button class="btn">Voltar para o início</button>
     </a>
@@ -264,28 +334,23 @@ h2 {
 
 <!-- AUDIO -->
 <audio id="meuAudio" src="src/✅ [ Mickey ] MEME Aí Que Dilicia ! ( Download ) 👇 - EFEITO SONORO GRATIS _ FREE SOUND EFFECT (youtube).mp3"></audio>
+
 <script>
 window.addEventListener("load", function() {
   const audio = document.getElementById("meuAudio");
 
-  // tenta tocar automaticamente
   audio.play().catch(() => {
-    console.log("Autoplay bloqueado, aguardando interação...");
-
-    // fallback: toca no primeiro clique do usuário
     document.addEventListener("click", function tocarDepois() {
       audio.play();
       document.removeEventListener("click", tocarDepois);
     });
   });
 
-  // vibração (mobile)
   if (navigator.vibrate) {
     navigator.vibrate(200);
   }
 });
 </script>
-
 
 </body>
 </html>
