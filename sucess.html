@@ -11,7 +11,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family:'Trebuchet MS', Arial, sans-serif;
 }
 
 body {
@@ -19,27 +19,27 @@ body {
 }
 
 /* HEADER */
-   header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        width: 100%;
-        height: 70px;
-        background-color: red;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-image: url("img/image-removebg-preview (13).png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 120px;
-      }
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 70px;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("img/image-removebg-preview (13).png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 120px;
+}
 
-/* CARD CENTRAL */
+/* CONTAINER */
 .container {
   max-width: 700px;
-  margin: 80px auto 40px; /* espaço normal abaixo do header */
+  margin: 80px auto 40px;
   padding: 20px;
 }
 
@@ -52,7 +52,7 @@ body {
   position: relative;
 }
 
-/* CONFETES (efeito leve) */
+/* CONFETES */
 .card::before {
   content: "";
   position: absolute;
@@ -78,6 +78,12 @@ body {
   color: white;
   position: relative;
   z-index: 2;
+  animation: pop 0.5s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
 }
 
 /* TITULO */
@@ -204,8 +210,7 @@ h2 {
 
 <body>
 
-<header>
-</header>
+<header></header>
 
 <div class="container">
   <div class="card">
@@ -249,13 +254,38 @@ h2 {
         <p><strong>Loja ativa</strong></p>
       </div>
     </div>
-  <a href="cadastro.csf.html">
-    <button class="btn">Voltar para o início</button>
-  </a>
-    
+
+    <a href="cadastro.csf.html">
+      <button class="btn">Voltar para o início</button>
+    </a>
 
   </div>
 </div>
+
+<!-- AUDIO -->
+<audio id="meuAudio" src="src/✅ [ Mickey ] MEME Aí Que Dilicia ! ( Download ) 👇 - EFEITO SONORO GRATIS _ FREE SOUND EFFECT (youtube).mp3"></audio>
+
+<script>
+window.addEventListener("load", function() {
+  const audio = document.getElementById("meuAudio");
+
+  // tenta tocar automaticamente
+  audio.play().catch(() => {
+    console.log("Autoplay bloqueado, aguardando interação...");
+
+    // fallback: toca no primeiro clique do usuário
+    document.addEventListener("click", function tocarDepois() {
+      audio.play();
+      document.removeEventListener("click", tocarDepois);
+    });
+  });
+
+  // vibração (mobile)
+  if (navigator.vibrate) {
+    navigator.vibrate(200);
+  }
+});
+</script>
 
 </body>
 </html>
